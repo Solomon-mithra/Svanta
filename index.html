@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Svanta</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="hero">
+    <!-- Left side (background image + logo) -->
+    <div class="hero-left">
+      <div class="logo">Svanta</div>
+    </div>
+
+    <!-- Right side (white background with text + contact button) -->
+    <div class="hero-right">
+      <a href="#" class="contact-btn" id="contactBtn">Contact</a>
+
+      <div class="content-wrapper">
+        <p class="subtitle">UNRAVELING OWNERSHIP</p>
+        <div class="hero-title">
+          <h1>Svanta</h1>
+          <p>Persevering Multimedia Ownership</p>
+        </div>
+        <p class="hero-text">
+          A simpler way to manage, own, and monetize all your digital creations on‑chain.
+        </p>
+        <button class="cta-button" id="ctaButton">Try Svanta →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you. Connect with us on LinkedIn or via email:</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+        <a href="#" id="copyEmailLink">Email: svanta2024@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast message container -->
+  <div id="toast">Copied!</div>
+
+  <!-- JS for modal + copying email -->
+  <script>
+    const contactBtn = document.getElementById('contactBtn');
+    const contactModal = document.getElementById('contactModal');
+    const closeModal = document.getElementById('closeModal');
+
+    contactBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      contactModal.classList.add('show');
+    });
+
+    closeModal.addEventListener('click', function() {
+      contactModal.classList.remove('show');
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('show');
+      }
+    });
+  </script>
+
+  <script>
+    const copyEmailLink = document.getElementById('copyEmailLink');
+    const toast = document.getElementById('toast');
+
+    copyEmailLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent link navigation
+
+      // The actual email you want to copy
+      const emailToCopy = 'svanta2024@gmail.com';
+
+      // Use the Clipboard API
+      navigator.clipboard.writeText(emailToCopy)
+        .then(() => {
+          // Show the toast
+          toast.classList.add('show');
+          // Hide the toast after 2 seconds
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
+    });
+  </script>
+</body>
+</html>
