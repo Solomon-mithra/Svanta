@@ -34,7 +34,7 @@ body {
 /* LEFT: Background image + Logo */
 .hero-left {
   flex: 0 0 55%;            /* 55% on desktop */
-  background: url("pexels-frostroomhead-9436715.jpg")
+  background: url("pexels-frostroomhead-9436715-min.jpg")
              center/cover no-repeat;
   position: relative;
 }
